@@ -136,3 +136,6 @@ dmypy.json
 
 # Virtual Environment
 env/
+
+# Migrations
+migrations/
