@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+A ToDo app by Foroutan
+{% endblock title %}
+
+{% block content %}
+    <header>ToDo App</header>
+    <div class="auth-links">
+        <a href="login.html">Log in</a>
+        /
+        <a href="signup.html">Sign up</a>
+    </div>
+    <div class="inputField">
+        <input type="text" placeholder="Add your new todo">
+        <button><i class="fas fa-plus"></i></button>
+    </div>
+    <ul class="todoList">
+        {% for task in tasks %}
+            <li>{{ task.text }}</li>
+        {% endfor %}
+    </ul>
+    <div class="list-footer">
+        <span>You have <span class="pendingTasks"></span> pending tasks</span>
+        <button>Clear All</button>
+    </div>
+{% comment %} 
+    <script>
+        console.log("{{ tasks }}");
+        console.log("{{ request.user }}");
+    </script>
+     {% endcomment %}
+{% endblock content %}
