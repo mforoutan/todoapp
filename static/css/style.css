@@ -64,7 +64,10 @@ body{
 .inputField input:focus{
   border-color: #efb400;
 }
-.inputField button{
+.inputField form{
+  width: 100%;
+}
+.inputField form button{
   width: 50px;
   height: 100%;
   border: none;
@@ -80,16 +83,16 @@ body{
   transition: all 0.3s ease;
 }
 
-.inputField button:hover,
+.inputField form button:hover,
 .list-footer button:hover{
   background: #ad8200;
 }
-.inputField button.active{
+.inputField form button.active{
   opacity: 1;
   pointer-events: auto;
 }
 .wrapper .todoList{
-  max-height: 250px;
+  /* max-height: 250px; */
   overflow-y: auto;
 }
 .todoList li{
