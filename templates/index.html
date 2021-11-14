@@ -6,13 +6,21 @@ A ToDo app by Foroutan
 {% block content %}
     <header>ToDo App</header>
     <div class="auth-links">
+    {% if user.is_authenticated %}
+        {{ user }} / <a href="/logout">Log Out</a>
+    {% else %}
         <a href="login.html">Log in</a>
         /
         <a href="signup.html">Sign up</a>
+    {% endif %}
     </div>
     <div class="inputField">
-        <input type="text" placeholder="Add your new todo">
-        <button><i class="fas fa-plus"></i></button>
+        <form method="POST">
+            {% comment %} <input type="text" placeholder="Add your new todo"> {% endcomment %}
+            {% csrf_token %}
+            {{ form.text }}
+            <button><i class="fas fa-plus"></i></button>
+        </form>
     </div>
     <ul class="todoList">
         {% for task in tasks %}
