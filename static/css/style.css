@@ -84,7 +84,7 @@ body{
 }
 
 .inputField form button:hover,
-.list-footer button:hover{
+.list-footer a:hover{
   background: #ad8200;
 }
 .inputField form button.active{
@@ -130,7 +130,7 @@ body{
   align-items: center;
   justify-content: space-between;
 }
-.list-footer button{
+.list-footer a{
   padding: 6px 10px;
   border-radius: 3px;
   border: none;
@@ -141,14 +141,8 @@ body{
   margin-left: 5px;
   background: #efb400;
   cursor: pointer;
-  user-select: none;
-  opacity: 0.6;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-.list-footer button.active{
   opacity: 1;
-  pointer-events: auto;
+  transition: all 0.3s ease;
 }
 
 .list-footer span{
