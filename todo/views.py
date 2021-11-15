@@ -1,3 +1,5 @@
+from django.db.models import query
+from django.http.response import HttpResponse
 from django.shortcuts import render
 from .models import Task
 from .forms import TaskForm
@@ -20,3 +22,21 @@ def indexView(request):
         'form': form,
     }
     return render(request,template,context)
+
+
+def deleteTask(request, id, pk):
+    if str(request.user.id) == str(id) and request.user.is_authenticated:
+        query = Task.objects.get(pk=pk)
+        query.delete()
+        return HttpResponseRedirect('/')
+    else:
+        return HttpResponse("Your Access is Unauthorized.")
+
+
+def deleteAll(request, id):
+    if str(request.user.id) == (id) and request.user.is_authenticated:
+        query = Task.objects.filter(user=request.user)
+        query.delete()
+        return HttpResponseRedirect('/')
+    else:
+        return HttpResponse("Your Access is Unauthorized.")

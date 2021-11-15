@@ -24,12 +24,18 @@ A ToDo app by Foroutan
     </div>
     <ul class="todoList">
         {% for task in tasks %}
-            <li>{{ task.text }}</li>
+            <li>
+                {{ task.text }}
+                <a href="delete/{{ user.id }}/{{ task.pk }}">
+                    <span class="icon"><i class="fas fa-trash"></i></span>
+                </a>
+            </li>
+            
         {% endfor %}
     </ul>
     <div class="list-footer">
         <span>You have <span class="pendingTasks"></span> pending tasks</span>
-        <button>Clear All</button>
+        <a href="deleteall/{{ user.id }}">Clear All</a>
     </div>
 {% comment %} 
     <script>
