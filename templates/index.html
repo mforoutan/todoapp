@@ -19,22 +19,30 @@ A ToDo app by Foroutan
             {% comment %} <input type="text" placeholder="Add your new todo"> {% endcomment %}
             {% csrf_token %}
             {{ form.text }}
-            <button><i class="fas fa-plus"></i></button>
+            <button type="submit"><i class="fas fa-plus"></i></button>
         </form>
     </div>
     <ul class="todoList">
         {% for task in tasks %}
-            <li>
-                {{ task.text }}
-                <a href="delete/{{ user.id }}/{{ task.pk }}">
-                    <span class="icon"><i class="fas fa-trash"></i></span>
-                </a>
-            </li>
-            
+            {% if task.status %}
+                <li class="completed">
+                    {{ task.text }}
+                    <a href="delete/{{ user.id }}/{{ task.pk }}">
+                        <span class="icon"><i class="fas fa-trash"></i></span>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="updateStatus/{{ user.id }}/{{ task.pk }}" class="taskaction">{{ task.text }}</a>
+                    <a href="delete/{{ user.id }}/{{ task.pk }}">
+                        <span class="icon"><i class="fas fa-trash"></i></span>
+                    </a>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
     <div class="list-footer">
-        <span>You have <span class="pendingTasks"></span> pending tasks</span>
+        <span>You have <span class="pendingTasks">{{ pendingTasks }}</span> pending tasks</span>
         <a href="deleteall/{{ user.id }}">Clear All</a>
     </div>
 {% comment %} 
