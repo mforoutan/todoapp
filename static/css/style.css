@@ -78,8 +78,6 @@ body{
   background: #efb400;
   cursor: pointer;
   border-radius: 3px;
-  opacity: 0.6;
-  pointer-events: none;
   transition: all 0.3s ease;
 }
 
@@ -87,10 +85,7 @@ body{
 .list-footer a:hover{
   background: #ad8200;
 }
-.inputField form button.active{
-  opacity: 1;
-  pointer-events: auto;
-}
+
 .wrapper .todoList{
   /* max-height: 250px; */
   overflow-y: auto;
@@ -213,4 +208,14 @@ footer p a{
   background: #efb400;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.taskaction{
+  color: #111111;
+  text-decoration: none;
+}
+
+.completed{
+  text-decoration: line-through;
+  opacity: 0.8;
 }
