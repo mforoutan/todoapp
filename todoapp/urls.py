@@ -19,9 +19,11 @@ from todo import views as todo_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', todo_views.indexView),
-    path('delete/<user_id>/<task_pk>', todo_views.deleteTask),
-    path('deleteall/<user_id>', todo_views.deleteAll),
-    path('updateStatus/<user_id>/<task_pk>', todo_views.taskUpdateStatus),
-    path('logout/', todo_views.logout)
+    path('', todo_views.index_view),
+    path('delete/<user_id>/<task_pk>', todo_views.delete_task),
+    path('deleteall/<user_id>', todo_views.delete_all),
+    path('updateStatus/<user_id>/<task_pk>', todo_views.update_task_status),
+    path('logout/', todo_views.logout),
+    path('login/', todo_views.login),
+    path('signup/', todo_views.signup),
 ]
