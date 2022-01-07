@@ -10,4 +10,4 @@ class Task(models.Model):
     status = models.BooleanField(default=False)
 
     def __str__(self):
-        return "Task: {} from User: {}".format(self.text, self.user.username)
+        return f"Task: {self.text} from User: {self.user.username}"
