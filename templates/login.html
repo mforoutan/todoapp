@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+A ToDo app by Foroutan
+{% endblock title %}
+
+{% block content %}
+    <header>ToDo App</header>
+    <div class="inputField-auth">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.username }}
+            {{ form.password }}
+            <button type="submit">Log in</button>
+        </form>
+    </div>
+    <p style="text-align: center;color: #fff;font-size: 0.7rem;">Don't have an account? <a href="/signup" style="color:#efb400;">Sign up here</a>.</p>
+{% endblock content %}
